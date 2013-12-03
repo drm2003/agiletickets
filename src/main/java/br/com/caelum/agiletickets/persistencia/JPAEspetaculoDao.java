@@ -47,7 +47,7 @@ public class JPAEspetaculoDao implements Agenda {
 	}
 
 	@Override
-	public Espetaculo espetaculo(Long espetaculoId) {
+	public Espetaculo consultaEspetaculoPorId(Long espetaculoId) {
 		return manager.find(Espetaculo.class, espetaculoId);
 	}
 

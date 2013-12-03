@@ -1,7 +1,11 @@
 package br.com.caelum.agiletickets.models;
 
 import static org.junit.Assert.*;
+
+import javax.persistence.Temporal;
+
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
 public class SessaoTest {
 
