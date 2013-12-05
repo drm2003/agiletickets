@@ -147,13 +147,14 @@ public class EspetaculoTest {
 		// Verifica não criou sessão
 		Assert.assertNull(sessoes);
 		//
-		inicio = new LocalDate();
+		//inicio = new LocalDate();
+		inicio = null;
 		fim = new LocalDate();
 		horario = null;
 		sessoes = espetaculo.criaSessoes(inicio, fim, horario,
 				Periodicidade.DIARIA);
 		// Verifica não criou sessão
-		Assert.assertNull(sessoes);
+		Assert.assertNull(sessoes, "Erro de propósito.");
 	}
 	
 	@Test
