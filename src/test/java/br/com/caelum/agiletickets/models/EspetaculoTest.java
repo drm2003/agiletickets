@@ -166,7 +166,7 @@ public class EspetaculoTest {
 		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario,
 				Periodicidade.DIARIA);
 		// Verifica não criou sessão
-		Assert.assertTrue(false, "Erro de propósito.");
+		Assert.assertNull(sessoes, "Erro de propósito.");
 	}
 	
 	@Test
