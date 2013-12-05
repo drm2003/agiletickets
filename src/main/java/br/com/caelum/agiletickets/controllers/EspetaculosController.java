@@ -1,7 +1,5 @@
 package br.com.caelum.agiletickets.controllers;
 
-import static br.com.caelum.vraptor.view.Results.status;
-
 import java.util.List;
 
 import org.joda.time.LocalDate;
@@ -103,11 +101,7 @@ public class EspetaculosController {
 		}
 
 		if (!sessao.podeReservar(quantidade)) {
-<<<<<<< HEAD
-			validator.add(new ValidationMessage("Nao existem ingressos disponíveis", ""));
-=======
 			mensagemValidacao("Nao existem ingressos disponíeis", "");
->>>>>>> b2925d2aa649a2918703bc2218ed040a3304da29
 		}
 
 		// em caso de erro, redireciona para a lista de sessao
@@ -139,13 +133,17 @@ public class EspetaculosController {
 		result.include("message", sessoes.size() + " sessoes criadas com sucesso");
 		result.redirectTo(this).lista();
 	}
-
 	private Espetaculo carregaEspetaculo(Long espetaculoId) {
-		Espetaculo espetaculo = agenda.consultaEspetaculoPorId(espetaculoId);
+		Espetaculo espetaculo;
+		try{
+			espetaculo = agenda.consultaEspetaculoPorId(espetaculoId);
+		}catch (Exception e){
+			return null;
+		}
 		if (espetaculo == null) {
 			mensagemValidacao("", "");
 		}
-		validator.onErrorUse(status()).notFound();
+		//validator.onErrorUse(status()).notFound();
 		return espetaculo;
 	}
 }

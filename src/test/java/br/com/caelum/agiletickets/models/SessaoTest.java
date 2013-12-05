@@ -1,11 +1,10 @@
 package br.com.caelum.agiletickets.models;
 
-import static org.junit.Assert.*;
-
-import javax.persistence.Temporal;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
 public class SessaoTest {
 
@@ -42,24 +41,16 @@ public class SessaoTest {
 		sessao.reserva(3);
 		assertEquals(2, sessao.getIngressosDisponiveis().intValue());
 	}
-<<<<<<< HEAD
-	
-	@Test
-	public void deveVender1ingressoSeHa1vaga() throws Exception {
-		Sessao sessao = new Sessao();
-        sessao.setTotalIngressos(1);
 
-        Assert.assertTrue(sessao.podeReservar(1));
-	}
+
 	
 	@Test
 	public void naoDeveVender0ingressoSeHa0vaga() throws Exception {
 		Sessao sessao = new Sessao();
         sessao.setTotalIngressos(0);
 
-        Assert.assertFalse(sessao.podeReservar(0));
+        assertFalse(sessao.podeReservar(0));
 	}
-=======
 
 	@Test
 	public void naoDeveVenderIngressoSeNaoHaVagas() throws Exception {
@@ -67,6 +58,4 @@ public class SessaoTest {
 		sessao.setTotalIngressos(0);
 		assertFalse(sessao.podeReservar(0));
 	}
-
->>>>>>> b2925d2aa649a2918703bc2218ed040a3304da29
 }

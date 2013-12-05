@@ -1,6 +1,6 @@
 package br.com.caelum.agiletickets;
 
-import javax.persistence.EntityManager; 
+import javax.persistence.EntityManager;
 
 import org.joda.time.DateTime;
 
@@ -16,28 +16,16 @@ public class PreencheBanco {
 	private static final int DURACAO_EM_MINUTOS = 60 * 3;
 	static EntityManagerFactoryCreator creator;
 	static EntityManagerCreator managerCreator;
-
-	private static final int TOTAL_INGRESSOS = 10;
-	private static final int DURACAO_EM_MINUTOS = 60 * 3;
-	static EntityManagerFactoryCreator creator = null;
-	static EntityManagerCreator managerCreator = null;
 	
 	// ALUNO: Não apague essa classe
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		EntityManager manager = conexao();
-
-		manager.getTransaction().begin();
-		limpaTabelasSessaoEspetaculoEstabelecimento(manager);
-=======
 		
 		EntityManager manager = criaFabricas();
 
 		manager.getTransaction().begin();
 		
 		limpaTabelasSessaoEspetaculoEstabelecimento(manager);
-		
->>>>>>> b2925d2aa649a2918703bc2218ed040a3304da29
+
 		Estabelecimento estabelecimento = criaEstabelecimento();
 
 		Espetaculo espetaculo = criaEspetaculo(estabelecimento);
@@ -85,7 +73,6 @@ public class PreencheBanco {
 		manager.createQuery("delete from Espetaculo").executeUpdate();
 		manager.createQuery("delete from Estabelecimento").executeUpdate();
 	}
-<<<<<<< HEAD
 
 	private static EntityManager conexao() {
 		creator = new EntityManagerFactoryCreator();
@@ -94,8 +81,6 @@ public class PreencheBanco {
 		managerCreator.create();
 		return managerCreator.getInstance();
 	}
-}
-=======
 	
 	private static EntityManager criaFabricas(){
 		creator = new EntityManagerFactoryCreator();
@@ -107,4 +92,3 @@ public class PreencheBanco {
 		return managerCreator.getInstance();
 	}
 }
->>>>>>> b2925d2aa649a2918703bc2218ed040a3304da29
