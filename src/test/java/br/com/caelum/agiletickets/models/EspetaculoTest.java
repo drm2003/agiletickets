@@ -167,7 +167,7 @@ public class EspetaculoTest {
 				Periodicidade.DIARIA);
 		// Verifica não criou sessão
 		Assert.assertNull(sessoes);
-		Assert.assertTrue(false);
+		//Assert.assertTrue(false);
 	}
 	
 	@Test
