@@ -181,7 +181,6 @@ public class EspetaculoTest {
 		Assert.assertEquals(inicio.toDateTime(horario).toDateTime(), sessoes.get(0).getInicio());
 		Assert.assertEquals(inicio.toDateTime(horario).toDateTime().plusDays(7), sessoes.get(1).getInicio());
 		Assert.assertEquals(inicio.toDateTime(horario).toDateTime().plusDays(14), sessoes.get(2).getInicio());
-		Assert.assertTrue(false, "Erro de propósito.");
 	}
 	
 	
