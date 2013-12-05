@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 
 @Entity
@@ -29,6 +30,18 @@ public class Sessao {
 	private Integer totalIngressos = 0;
 
 	private Integer ingressosReservados = 0;
+
+
+
+	public Sessao() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Sessao(Espetaculo espetaculo2, DateTime dateTime) {
+		espetaculo = espetaculo2;
+		inicio = dateTime;
+	}
+
 
 	public Long getId() {
 		return id;
