@@ -161,13 +161,12 @@ public class EspetaculoTest {
 	public void deverRetornarNuloSeDataInicioForAnteriorADataAtual(){
 		Espetaculo espetaculo = new Espetaculo();
 		LocalDate inicio = new LocalDate().minusDays(1);
-		inicio = null;
 		LocalDate fim = new LocalDate();
 		LocalTime horario = new LocalTime();
 		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario,
 				Periodicidade.DIARIA);
 		// Verifica não criou sessão
-		Assert.assertNull(sessoes, "Erro de propósito.");
+		Assert.assertTrue(false, "Erro de propósito.");
 	}
 	
 	@Test
