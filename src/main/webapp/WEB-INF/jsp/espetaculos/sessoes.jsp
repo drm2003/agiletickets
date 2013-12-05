@@ -20,7 +20,11 @@
 				<option value="SEMANAL">Semanal</option>			
 			</select>
 			
+<<<<<<< HEAD
 			<input type="submit" value="Criar"/>
+=======
+			<input type="submit" value="Criar Sessão" />
+>>>>>>> b2925d2aa649a2918703bc2218ed040a3304da29
 		</form>
 	
 	</body>

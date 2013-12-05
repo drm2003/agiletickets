@@ -2,6 +2,9 @@ package br.com.caelum.agiletickets.models;
 
 import static com.google.common.collect.Lists.newArrayList;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,8 +15,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
+import org.joda.time.Weeks;
 
 @Entity
 public class Espetaculo {
@@ -96,10 +102,62 @@ public class Espetaculo {
       * Repare que a data da primeira sessao é sempre a data inicial.
       */
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
+<<<<<<< HEAD
 		// TODO: ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
 		return null;
+=======
+		if(isValidaSeDatasNulasEFimMenorQueInicio(inicio, fim, horario)){
+			return null;
+		}
+		
+		int intervalo = retornaIntervalo(inicio, fim, periodicidade);
+		if(intervalo<0){
+			return null;
+		}
+		
+		List<Sessao> sessoes = new ArrayList<Sessao>();
+		for (int i = 0; i <= intervalo; i++) {
+			DateTime dateTime = retornaDataDaSessao(inicio, horario,
+					periodicidade, i);
+			sessoes.add(new Sessao(this, dateTime));
+		}
+		return sessoes;
+	}
+
+	private DateTime retornaDataDaSessao(LocalDate inicio, LocalTime horario,
+			Periodicidade periodicidade, int i) {
+		DateTime dateTime;
+		if (periodicidade.equals(Periodicidade.DIARIA)) {
+			dateTime = inicio.toDateTime(horario).toDateTime().plusDays(i);
+		} else {
+			dateTime = inicio.toDateTime(horario).toDateTime().plusWeeks(i);
+		}
+		return dateTime;
+	}
+
+	private int retornaIntervalo(LocalDate inicio, LocalDate fim,
+			Periodicidade periodicidade) {
+		int intervalo = Days.daysBetween(inicio, fim).getDays();
+		if (periodicidade.equals(Periodicidade.SEMANAL)) {
+			intervalo = Weeks.weeksBetween(inicio, fim).getWeeks();
+		}
+		return intervalo;
+>>>>>>> b2925d2aa649a2918703bc2218ed040a3304da29
 	}
 	
+	private boolean isValidaSeDatasNulasEFimMenorQueInicio(LocalDate inicio,
+			LocalDate fim, LocalTime horario) {
+		if(inicio == null || fim == null || horario == null){
+			return true;
+		}
+		
+		LocalDate dataDeHoje = new LocalDate();
+		if(inicio.isBefore(dataDeHoje)){
+			return true;
+		}
+		return false;
+	}
+
 	public boolean Vagas(int qtd, int min)
     {
         // ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)

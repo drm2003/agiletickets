@@ -15,7 +15,7 @@ public interface Agenda {
 
 	Sessao sessao(Long sessaoId);
 
-	Espetaculo espetaculo(Long espetaculoId);
+	Espetaculo consultaEspetaculoPorId(Long espetaculoId);
 
 	void agende(List<Sessao> sessoes);
 

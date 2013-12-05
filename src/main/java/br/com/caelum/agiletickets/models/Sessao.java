@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 
 @Entity
@@ -29,6 +30,18 @@ public class Sessao {
 	private Integer totalIngressos = 0;
 
 	private Integer ingressosReservados = 0;
+
+
+
+	public Sessao() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Sessao(Espetaculo espetaculo2, DateTime dateTime) {
+		espetaculo = espetaculo2;
+		inicio = dateTime;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -87,15 +100,6 @@ public class Sessao {
 		return totalIngressos - ingressosReservados;
 	}
 	
-	// Era usada antes no sistema para avisar o cliente de que
-    // os ingressos estavam acabando!
-    // Hoje nao serve pra nada, mas eh sempre bom ter
-    // um backup guardado! ;)
-    public boolean pertoDoLimiteDeSeguranca_NaoUtilizada()
-    {
-            int limite = 3;
-            return getIngressosDisponiveis() > limite;
-    }
 
 	public void reserva(Integer numeroDeIngressos) {
 		// soma quantidade na variavel ingressos reservados
