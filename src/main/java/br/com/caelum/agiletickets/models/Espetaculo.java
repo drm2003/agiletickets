@@ -150,6 +150,10 @@ public class Espetaculo {
 		if(inicio.isBefore(dataDeHoje)){
 			return true;
 		}
+		
+		if(fim.isBefore(inicio)){
+			return true;
+		}
 		return false;
 	}
 
