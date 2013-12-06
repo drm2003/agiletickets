@@ -12,10 +12,12 @@
 			<input type="text" name="fim" id="fim"/>
 			
 			<label for="horario">Horário</label>
-			<input type="text" name="horario" id="horario"/>
+			<input type="text" name="xxx" id="horario"/>
 			
-			<label for="periodicidade">Periodicidade</label>
-			<select name="periodicidade" id="periodicidade">
+
+			<label for="periodo">Periodicidade</label>
+			<select name="periodicidade" id="periodo">
+
 				<option value="DIARIA">Diária</option>		
 				<option value="SEMANAL">Semanal</option>			
 			</select>

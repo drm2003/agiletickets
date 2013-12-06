@@ -121,12 +121,13 @@ public class EspetaculosController {
 
 
 	@Post @Path("/espetaculo/{espetaculoId}/sessoes")
-	public void cadastraSessoes(Long espetaculoId, LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
+	public void cadastraSessoes(Long espetaculoId, LocalDate inicio, LocalDate fim, String xxx, Periodicidade periodicidade) {
 		Espetaculo espetaculo = carregaEspetaculo(espetaculoId);
 
 		// aqui faz a magica!
 		// cria sessoes baseado no periodo de inicio e fim passados pelo usuario
-		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
+		LocalTime time = new LocalTime(xxx);
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, time, periodicidade);
 
 		agenda.agende(sessoes);
 
