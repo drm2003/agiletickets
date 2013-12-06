@@ -1,5 +1,7 @@
 package br.com.caelum.agiletickets;
 
+import java.math.BigDecimal;
+
 import javax.persistence.EntityManager;
 
 import org.joda.time.DateTime;

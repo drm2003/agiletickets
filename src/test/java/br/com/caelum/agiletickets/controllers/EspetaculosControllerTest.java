@@ -23,8 +23,6 @@ import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.ValidationException;
 
 public class EspetaculosControllerTest {
-
-
 	private @Mock Agenda agenda;
 	private @Mock DiretorioDeEstabelecimentos estabelecimentos;
 	private @Spy Validator validator = new MockValidator();

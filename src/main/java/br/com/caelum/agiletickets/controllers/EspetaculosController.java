@@ -1,6 +1,11 @@
 package br.com.caelum.agiletickets.controllers;
 
+import static br.com.caelum.vraptor.view.Results.status;
+
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
@@ -22,6 +27,8 @@ import com.google.common.base.Strings;
 
 @Resource
 public class EspetaculosController {
+
+	private NumberFormat CURRENCY = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
 	private final Agenda agenda;
 	private Validator validator;
