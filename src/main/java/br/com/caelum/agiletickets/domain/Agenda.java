@@ -11,8 +11,8 @@ public interface Agenda {
 
 	void cadastra(Espetaculo espetaculo);
 
-	List<Sessao> proximasSessoes(int maximo);
 
+	List<Sessao> proximasSessoes(int maximo);
 	Sessao sessao(Long sessaoId);
 
 	Espetaculo consultaEspetaculoPorId(Long espetaculoId);

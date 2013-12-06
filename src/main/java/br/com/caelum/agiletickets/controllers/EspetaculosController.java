@@ -96,9 +96,14 @@ public class EspetaculosController {
 		validaQuantidadeMenorQueUmESeNaoPodeReservar(quantidade, sessao);
 
 		sessao.reserva(quantidade);
-		result.include("message", "Sessao reservada com sucesso");
+		//result.include("message", "Sessao reservada com sucesso");
 
-		result.redirectTo(IndexController.class).index();
+        BigDecimal precoTotal = sessao.getPreco().multiply(BigDecimal.valueOf(quantidade));
+
+        result.include("message", "Sessao reservada com sucesso por " + CURRENCY.format(precoTotal));
+
+        result.redirectTo(IndexController.class).index();
+
 	}
 
 	private void validaQuantidadeMenorQueUmESeNaoPodeReservar(
@@ -151,7 +156,7 @@ public class EspetaculosController {
 		if (espetaculo == null) {
 			mensagemValidacao("", "");
 		}
-		//validator.onErrorUse(status()).notFound();
+		validator.onErrorUse(status()).notFound();
 		return espetaculo;
 	}
 }

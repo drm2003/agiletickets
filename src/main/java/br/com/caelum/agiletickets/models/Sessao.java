@@ -27,7 +27,7 @@ public class Sessao {
 
 	private Integer duracaoEmMinutos;
 
-	private Integer totalIngressos = 0;
+	private Integer totalIngressos = 10;
 
 	private Integer ingressosReservados = 0;
 	
